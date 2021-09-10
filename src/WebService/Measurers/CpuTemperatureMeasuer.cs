@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using WebService.Metrics;
 
 namespace WebService.Measurers
 {
@@ -6,7 +7,7 @@ namespace WebService.Measurers
     {
         private Iot.Device.CpuTemperature.CpuTemperature measurer;
 
-        public CpuTemperatureMeasuer(Iot.Device.CpuTemperature.CpuTemperature measurer)
+        public CpuTemperatureMeasuer(Iot.Device.CpuTemperature.CpuTemperature measurer, Summaries summaries) : base(summaries)
         {
             this.measurer = measurer;
         }
