@@ -15,7 +15,7 @@ namespace WebService.Metrics
 
         public void Report(string metric, double value)
         {
-            var summary = summaries.GetOrAdd(metric, Prometheus.Metrics.CreateSummary(metric, ""));
+            var summary = summaries.GetOrAdd(metric, Prometheus.Metrics.CreateSummary(metric, metric + "_help"));
 
             summary.Observe(value);
         }

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Prometheus;
+using WebService.MeasurementService;
 using WebService.Measurers;
 using WebService.Metrics;
 
@@ -25,6 +26,9 @@ namespace WebService
             services.AddSingleton<Summaries>();
 
             services.AddTransient<IMeasurer, CpuTemperatureMeasuer>();
+            //services.AddTransient<IMeasurer, FakeMeasurer>();
+
+            services.AddHostedService<MonitoringService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
