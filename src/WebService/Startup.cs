@@ -27,6 +27,7 @@ namespace WebService
 
             services.AddTransient<IMeasurer, CpuTemperatureMeasuer>();
             //services.AddTransient<IMeasurer, FakeMeasurer>();
+            services.AddTransient<Iot.Device.CpuTemperature.CpuTemperature>();
 
             services.AddHostedService<MonitoringService>();
         }
